@@ -1,0 +1,77 @@
+.body--light {
+  --primary-chip: var(--q-primary);
+  --secondary-chip: var(--q-secondary);
+  --accent-chip: var(--q-accent);
+  --positive-chip: var(--q-positive);
+  --negative-chip: var(--q-negative);
+  --info-chip: var(--q-info);
+  --warning-chip: var(--q-warning);
+  --light-chip: var(--q-light);
+  --dark-chip: var(--q-dark);
+}
+.body--dark {
+  --primary-chip: var(--q-primary);
+  --secondary-chip: var(--q-secondary);
+  --accent-chip: var(--q-accent);
+  --positive-chip: var(--q-positive);
+  --negative-chip: var(--q-negative);
+  --info-chip: var(--q-info);
+  --warning-chip: var(--q-warning);
+  --light-chip: var(--q-light);
+  --dark-chip: var(--q-dark);
+}
+
+.bg-primary-chip {
+  background-color: var(--primary-chip) !important;
+}
+.text-primary-chip {
+  color: var(--primary-chip) !important;
+}
+.bg-secondary-chip {
+  background-color: var(--secondary-chip) !important;
+}
+.text-secondary-chip {
+  color: var(--secondary-chip) !important;
+}
+.bg-accent-chip {
+  background-color: var(--accent-chip) !important;
+}
+.text-accent-chip {
+  color: var(--accent-chip) !important;
+}
+.bg-light-chip {
+  background-color: var(--light-chip) !important;
+}
+.text-light-chip {
+  color: var(--light-chip) !important;
+}
+.bg-positive-chip {
+  background-color: var(--positive-chip) !important;
+}
+.text-positive-chip {
+  color: var(--positive-chip) !important;
+}
+.bg-negative-chip {
+  background-color: var(--negative-chip) !important;
+}
+.text-negative-chip {
+  color: var(--negative-chip) !important;
+}
+.bg-info-chip {
+  background-color: var(--info-chip) !important;
+}
+.text-info-chip {
+  color: var(--info-chip) !important;
+}
+.bg-warning-chip {
+  background-color: var(--warning-chip) !important;
+}
+.text-warning-chip {
+  color: var(--warning-chip) !important;
+}
+.bg-dark-chip {
+  background-color: var(--dark-chip) !important;
+}
+.text-dark-chip {
+  color: var(--dark-chip) !important;
+}

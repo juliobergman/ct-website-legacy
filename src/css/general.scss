@@ -1,0 +1,19 @@
+$max-width: 1200px;
+
+.contain {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+.container {
+  max-width: $max-width;
+}
+// Custom Colors
+.bg-brand {
+  background-color: var(--brand) !important;
+}
+.text-brand {
+  color: var(--brand) !important;
+}
+.d-none {
+  display: none;
+}

@@ -12,14 +12,56 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$primary   : #1976D2;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+$primary: #6c61ff;
+$secondary: #9891a0;
+$accent: #00c5bb;
 
-$dark      : #1D1D1D;
-$dark-page : #121212;
+// $dark: #1c1e1f;
+// $dark-page: #030609;
 
-$positive  : #21BA45;
-$negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
+// Almost Black
+// $dark: #0d0d0f;
+// $dark-page: #0d0d0f;
+
+// $dark: #262626;
+$dark: #191919;
+// $dark: #0f0f0f;
+$dark-page: #121212;
+$dark-page-text: #fff;
+
+$light: #fff;
+$light-page: #fff;
+$light-page-text: #363636 !default;
+
+$dark-shadow-color: #000 !default;
+
+$positive: #16c784;
+$negative: #ce3030;
+$info: #31ccec;
+$warning: #f2c037;
+
+$ui-overlay: #000;
+$ui-light-image-background: #fff;
+$ui-dark-image-background: darken($dark-page, 7%);
+
+$ui-light: #262626;
+$ui-dark: #ddd;
+
+$ui-light-10: rgba($ui-light, 0.1);
+$ui-light-25: rgba($ui-light, 0.25);
+$ui-light-50: rgba($ui-light, 0.5);
+$ui-light-75: rgba($ui-light, 0.75);
+
+$ui-dark-10: rgba($ui-dark, 0.1);
+$ui-dark-25: rgba($ui-dark, 0.25);
+$ui-dark-50: rgba($ui-dark, 0.5);
+$ui-dark-75: rgba($ui-dark, 0.75);
+
+$ui-border-light: rgba($ui-light, 0.12);
+$ui-border-dark: rgba($ui-dark, 0.28);
+
+$ui-subtitle-light: rgba($ui-light, 0.8);
+$ui-subtitle-dark: rgba($ui-dark, 0.8);
+
+$separator-color: $ui-border-light !default;
+$separator-dark-color: $ui-border-dark !default;

@@ -1,0 +1,46 @@
+@import "./colors/homeParallax.scss";
+@import "./colors/button.scss";
+@import "./colors/chip.scss";
+
+.body--light {
+  --background: #{$light-page};
+  --q-primary: #6c61ff;
+  --q-secondary: #9891a0;
+  --q-accent: #00c5bb;
+  --q-light: #fff;
+  --q-positive: #16c784;
+  --q-negative: #ce3030;
+  --q-info: #31ccec;
+  --q-warning: #f2c037;
+  --q-dark: #{$dark};
+  --q-dark-page: #{$dark-page};
+  --q-light: #{$light};
+  --q-light-page: #{$light-page};
+}
+.body--dark {
+  --background: #{$dark-page};
+  --q-primary: #6c61ff;
+  --q-secondary: #9891a0;
+  --q-accent: #00c5bb;
+  --q-light: #fff;
+  --q-positive: #16c784;
+  --q-negative: #ce3030;
+  --q-info: #31ccec;
+  --q-warning: #f2c037;
+  --q-dark: #{$dark};
+  --q-dark-page: #{$dark-page};
+}
+
+body.body--light {
+  color: $light-page-text;
+  background: $light-page;
+}
+body.body--dark {
+  color: $dark-page-text !important;
+  background: $dark-page;
+}
+
+.bg-none {
+  background: none !important;
+  background-color: transparent !important;
+}

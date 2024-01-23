@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+.gf-01 {
+  font-family: "Great Vibes", cursive;
+}
+
+.text-pre {
+  white-space: pre !important;
+  background-color: #28292b !important;
+  color: #4f8aff !important;
+  padding: 25px;
+  width: 100%;
+  max-width: 850px;
+  overflow-x: auto;
+}
+
+// Screen
+@media only screen and (max-width: 600px) {
+  .text-h3 {
+    font-size: 2rem;
+  }
+  .text-h6 {
+    font-size: 1rem;
+  }
+}
