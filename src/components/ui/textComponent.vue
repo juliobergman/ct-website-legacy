@@ -1,5 +1,5 @@
 <template>
-  <span :style="'opacity: ' + opacity" :class="cssClass">{{ content }}</span>
+  <span :style="'opacity: ' + opacity" :class="cssClass">{{ content }} </span>
 </template>
 
 <script setup>
@@ -30,6 +30,14 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  shadowed: {
+    type: Boolean,
+    default: false,
+  },
+  shadow: {
+    type: Number,
+    default: null,
+  },
 });
 
 const content = computed(() => props.content);
@@ -40,6 +48,8 @@ const cssClass = computed(() => {
   if (props.weight) cls += " " + "text-weight-" + props.weight;
   if (props.color) cls += " " + "text-" + props.color;
   if (props.class) cls += " " + props.class;
+  if (props.shadowed === true) cls += " text-shadow-1";
+  if (props.shadow) cls += " text-shadow-" + props.shadow;
 
   return cls;
 });

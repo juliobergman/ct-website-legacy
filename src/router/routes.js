@@ -19,7 +19,7 @@ const routes = [
       {
         path: "",
         name: "blog-page",
-        component: () => import("pages/auth/loginPage.vue"),
+        component: () => import("pages/blog/indexPage.vue"),
         meta: {
           // middlewares: [guest],
         },

@@ -17,7 +17,12 @@
       >
         <q-tab name="places" label="Restaurants" no-caps />
         <q-tab name="things" label="Where to Stay" no-caps />
-        <q-tab name="information" label="Blog" no-caps />
+        <q-route-tab
+          name="information"
+          label="Blog"
+          no-caps
+          :to="{ name: 'blog-page' }"
+        />
       </q-tabs>
 
       <btn-dark-mode-header />

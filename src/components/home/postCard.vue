@@ -5,9 +5,20 @@
         <q-img :ratio="4 / 3" :src="post.image.src" />
       </q-card-section>
       <q-card-section class="col-12 col-md-7">
-        <div class="text-h5">{{ post.title }}</div>
         <div>
-          By {{ post.author.name }} &bull;
+          <d-text text="h5" :content="post.title" />
+        </div>
+        <div>
+          {{ $t("blog.label.by") }}
+          <d-link
+            :to="{
+              name: 'post-author',
+              params: { username: post.author.username },
+            }"
+          >
+            {{ post.author.name }}
+          </d-link>
+          &bull;
           {{ post.post_date.diff_for_humans }}
         </div>
         <div class="text-body1 q-my-lg">{{ post.excerpt }}</div>
@@ -24,7 +35,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   postData: {},

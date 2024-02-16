@@ -1,8 +1,8 @@
 <template>
   <div class="section flex justify-center">
     <div class="content q-gutter-y-lg">
-      <div class="text-h3">Latest Post</div>
-      <home-post-card v-for="post in posts" :key="post.id" :post-data="post" />
+      <d-text text="h6" weight="medium" :content="$t('blog.label.latest')" />
+      <post-grid :posts="posts" />
     </div>
   </div>
 </template>

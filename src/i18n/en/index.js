@@ -63,6 +63,9 @@ export default {
     de: "German",
   },
   home: {
+    label: {
+      welcome: "Welcome to",
+    },
     cards: {
       card1: {
         title: "Things to Do",
@@ -87,6 +90,7 @@ export default {
       by: "by",
       keep_reading: "Keep Reading",
       published_by: "Published by",
+      latest: "Latest Posts",
     },
     tooltip: {},
   },

@@ -53,8 +53,6 @@ const $router = useRouter();
 const $store = useAppStore();
 const $mobile = computed(() => ($q.platform.is.mobile ? true : false));
 
-const tester = computed(() => $store.getLocale);
-
 let loaded = ref(false);
 let author = ref({});
 

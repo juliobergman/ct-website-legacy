@@ -3,11 +3,12 @@
     <home-parallax>
       <template #cover>
         <div
+          v-if="false"
           class="fit row justify-center text-white"
           style="padding-top: 150px"
         >
           <div class="column gf-01 text-center">
-            <div class="text-h2">Welcome to</div>
+            <div class="text-h2">{{ $t("home.label.welcome") }}</div>
             <div class="text-h1">Colonia Tovar</div>
           </div>
         </div>
@@ -15,7 +16,7 @@
       <template #sl01>
         <div class="q-pa-lg">
           <div class="column gf-01 text-center text-white q-mb-xl">
-            <div class="text-h2">Welcome to</div>
+            <div class="text-h2">{{ $t("home.label.welcome") }}</div>
             <div class="text-h1">Colonia Tovar</div>
           </div>
           <div class="row justify-around q-col-gutter-lg">
@@ -28,7 +29,7 @@
         </div>
       </template>
       <template #sl02>
-        <home-post-section />
+        <home-latest-posts />
       </template>
     </home-parallax>
   </q-page>

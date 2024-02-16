@@ -50,8 +50,10 @@ import { ref, computed, watchEffect, onMounted } from "vue";
 import { api } from "boot/axios";
 import { useRoute, useRouter } from "vue-router";
 import { useQuasar, date } from "quasar";
+import { useAppStore } from "stores/app";
 
 const $q = useQuasar();
+const $store = useAppStore();
 const $route = useRoute();
 const $router = useRouter();
 
@@ -70,7 +72,7 @@ function retrieve() {
   $q.loading.show();
 
   api
-    .get("/api/es/post/show/" + $route.params.slug, {
+    .get("/api/" + $store.getLocale + "/post/show/" + $route.params.slug, {
       // headers: {
       //   Authorization: "Bearer " + token,
       // },

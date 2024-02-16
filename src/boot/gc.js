@@ -22,6 +22,7 @@ import uiTextComponent from "../components/ui/textComponent.vue";
 import HomeParallax from "../components/home/parallaxComponent.vue";
 import HomeMainCard from "../components/home/mainCard.vue";
 import HomePostSection from "../components/home/postSection.vue";
+import HomePostSectionLatest from "../components/home/section/postLatest.vue";
 import HomePostCard from "../components/home/postCard.vue";
 
 // Media
@@ -29,7 +30,9 @@ import mediaImageContainer from "../components/media/imageContainer.vue";
 import mediaImageThumbnail from "../components/media/imageThumbnail.vue";
 
 // Blog
+import blogFeaturedPost from "../components/blog/home/featuredPost.vue";
 import postGridContainer from "../components/blog/postGridContainer.vue";
+import postColumnContainer from "../components/blog/postColumnContainer.vue";
 import blogPostThumbnail from "../components/blog/postThumbnail.vue";
 
 import blogUserInsert from "../components/blog/userInsert.vue";
@@ -69,6 +72,7 @@ export default boot(async ({ app }) => {
   app.component("home-parallax", HomeParallax);
   app.component("home-card", HomeMainCard);
   app.component("home-post-section", HomePostSection);
+  app.component("home-latest-posts", HomePostSectionLatest);
   app.component("home-post-card", HomePostCard);
 
   // Media
@@ -78,7 +82,11 @@ export default boot(async ({ app }) => {
   // Blog
   app.component("post-chip", postCategoryChip);
   app.component("blog-post-title", postTitle);
+
+  app.component("blog-featured-post", blogFeaturedPost);
   app.component("post-grid", postGridContainer);
+  app.component("post-column", postColumnContainer);
+
   app.component("blog-post-thumbnail", blogPostThumbnail);
   app.component("blog-user-insert", blogUserInsert);
   app.component("post-block-selector", postBlockSelector);

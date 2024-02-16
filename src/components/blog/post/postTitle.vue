@@ -1,5 +1,13 @@
 <template>
   <div class="full-width q-gutter-none q-px-md">
+    <div class="row q-my-sm">
+      <post-chip
+        v-for="(cat, idx) in post.categories"
+        :key="cat.id"
+        :category="cat"
+        :first="idx === 0 ? true : false"
+      />
+    </div>
     <div class="row">
       <h1 class="post-title text-shadow-1 text-h3 q-pa-none q-ma-none">
         {{ post.title }}
@@ -26,14 +34,6 @@
           {{ post.post_date.diff_for_humans }}
         </span>
       </h2>
-    </div>
-    <div class="row q-my-sm">
-      <post-chip
-        v-for="(cat, idx) in post.categories"
-        :key="cat.id"
-        :category="cat"
-        :first="idx === 0 ? true : false"
-      />
     </div>
   </div>
 </template>
