@@ -1,4 +1,3 @@
-$pageWidth: 1200px;
 .post-page-container {
   .contain {
     margin: 0 auto;
@@ -6,6 +5,14 @@ $pageWidth: 1200px;
     max-width: $pageWidth;
   }
 }
+
+.post-page {
+  width: 100vw;
+  max-width: $pageWidth;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+
 .text-block {
   margin-bottom: -16px;
 }
@@ -52,15 +59,8 @@ $pageWidth: 1200px;
   }
 }
 
-.post-page {
-  width: 100vw;
-  max-width: $pageWidth;
-  z-index: 1;
-  margin-bottom: 50px;
-}
-
-@media only screen and (min-width: $pageWidth) {
-  .post-page {
-    // margin-top: 180px;
-  }
-}
+// @media only screen and (min-width: $pageWidth) {
+//   .post-page {
+//     // margin-top: 180px;
+//   }
+// }

@@ -50,6 +50,11 @@ export default {
       username: "Username",
       visible: "Visible",
       wizard: "Wizard",
+      contact: "Contact",
+      phone: "Phone",
+      address: "Address",
+      social_networks: "Social",
+      details: "Details",
     },
     tooltip: {
       fullscreen: "Enter Fullscreen",

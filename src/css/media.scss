@@ -3,5 +3,29 @@
   display: block;
   height: fit-content;
 }
-.media-thumbnail {
+.image-container-fullscreen {
+  max-height: 100vh;
+  .image {
+    max-height: 100vh;
+  }
 }
+// .media-thumbnail {
+// }
+
+// .ct-carousel-dialog {
+//   .q-carousel__slide {
+//     background-repeat: no-repeat;
+//   }
+//   &.image-contain {
+//     .q-carousel__slide {
+//       background-size: contain;
+//     }
+//   }
+//   &.image-cover {
+//     .q-carousel__slide {
+//       background-size: cover;
+//     }
+//   }
+// }
+
+// q-carousel__slide

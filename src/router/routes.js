@@ -9,6 +9,14 @@ const routes = [
         name: "home-page",
         component: () => import("pages/IndexPage.vue"),
       },
+      {
+        path: ":username",
+        name: "business-page",
+        component: () => import("pages/business/profilePage.vue"),
+        meta: {
+          // middlewares: [guest],
+        },
+      },
     ],
   },
   // Blog
@@ -44,6 +52,21 @@ const routes = [
         path: "category/:category",
         name: "blog-category",
         component: () => import("pages/blog/categoryPage.vue"),
+        meta: {
+          // middlewares: [guest],
+        },
+      },
+    ],
+  },
+  // Business
+  {
+    path: "/business",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      {
+        path: "section/:category",
+        name: "business-category",
+        component: () => import("pages/business/indexPage.vue"),
         meta: {
           // middlewares: [guest],
         },

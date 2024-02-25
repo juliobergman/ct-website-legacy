@@ -1,0 +1,30 @@
+.business-page-container {
+  .contain {
+    margin: 0 auto;
+    width: 100vw;
+    max-width: $pageWidth;
+  }
+}
+
+.business-page {
+  width: 100vw;
+  max-width: $pageWidth;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+// .business-page-margin-top {
+//   // top: 175px;
+// }
+.business-cover {
+  display: block;
+  position: relative;
+  z-index: 0;
+  width: calc(100vw + 100px);
+  .biz-image-overlay {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ) !important;
+  }
+}

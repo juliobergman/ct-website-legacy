@@ -1,6 +1,6 @@
 <template>
   <div>
-    <post-gallery-grid
+    <grid-gallery
       v-if="content.gallery_type === 'grid'"
       :media="content.gallery.media"
     />

@@ -15,8 +15,18 @@
         inline-label
         class="text-white text-weight-light"
       >
-        <q-tab name="places" label="Restaurants" no-caps />
-        <q-tab name="things" label="Where to Stay" no-caps />
+        <q-route-tab
+          name="places"
+          label="Restaurants"
+          no-caps
+          :to="{ name: 'business-category', params: { category: 4 } }"
+        />
+        <q-route-tab
+          name="stay"
+          label="Where to stay"
+          no-caps
+          :to="{ name: 'business-category', params: { category: 1 } }"
+        />
         <q-route-tab
           name="information"
           label="Blog"

@@ -1,5 +1,11 @@
 <template>
-  <q-card :class="cardClass" flat :style="imageStyle" v-ripple>
+  <q-card
+    :class="cardClass"
+    flat
+    :style="imageStyle"
+    v-ripple
+    @click="handleClick"
+  >
     <q-img
       ref="image"
       :ratio="ratio"
@@ -22,6 +28,8 @@ const props = defineProps({
   },
 });
 
+const $emit = defineEmits(["media:click"]);
+
 let image = ref(null);
 let imageStyle = ref("");
 
@@ -33,6 +41,10 @@ const cardClass = computed(() => {
   if (props.class) c += " " + props.class;
   return c;
 });
+
+function handleClick() {
+  $emit("media:click", img.value);
+}
 
 // Container Resize
 function setupImage() {

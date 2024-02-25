@@ -13,10 +13,12 @@ import darkModeHeaderButton from "../components/layout/main/btn/darkMode.vue";
 import HomeCarousel from "../components/misc/homeCarousel.vue";
 
 // Ui
+import uiSplitFrame from "../components/ui/splitFrame.vue";
 import uiDefaultButton from "../components/ui/btn/defaultButton.vue";
 import uiLocaleButton from "../components/ui/btn/localeButton.vue";
 import uiDefaultLink from "../components/ui/defaultLink.vue";
 import uiTextComponent from "../components/ui/textComponent.vue";
+import uiSocialMediaIcon from "../components/ui/icon/socialMediaIcon.vue";
 
 //Home
 import HomeParallax from "../components/home/parallaxComponent.vue";
@@ -28,6 +30,8 @@ import HomePostCard from "../components/home/postCard.vue";
 // Media
 import mediaImageContainer from "../components/media/imageContainer.vue";
 import mediaImageThumbnail from "../components/media/imageThumbnail.vue";
+import mediaGridGallery from "../components/media/galleryGrid.vue";
+import mediaCarouselDialog from "../components/media/dialog/carouselDialog.vue";
 
 // Blog
 import blogFeaturedPost from "../components/blog/home/featuredPost.vue";
@@ -49,6 +53,14 @@ import postGalleryCarousel from "../components/blog/post/content/gallery/typeCar
 import postVideoBlock from "../components/blog/post/content/videoBlock.vue";
 import postTableBlock from "../components/blog/post/content/tableBlock.vue";
 
+// Business
+import bizThumbnail from "../components/business/bizThumbnail.vue";
+import bizGridContainer from "../components/business/bizGridContainer.vue";
+import bizCategoryChip from "../components/business/bizChip.vue";
+import bizSocialChip from "../components/business/bizSocialChip.vue";
+import bizContact from "../components/business/bizContact.vue";
+import bizTitle from "../components/business/bizTitle.vue";
+
 export default boot(async ({ app }) => {
   // Logo
   app.component("logo-icon", LogoIcon);
@@ -63,9 +75,11 @@ export default boot(async ({ app }) => {
   app.component("home-carousel", HomeCarousel);
 
   // Ui
+  app.component("split-frame", uiSplitFrame);
   app.component("d-btn", uiDefaultButton);
   app.component("d-link", uiDefaultLink);
   app.component("d-text", uiTextComponent);
+  app.component("social-icon", uiSocialMediaIcon);
   app.component("btn-locale", uiLocaleButton);
 
   //Home
@@ -78,6 +92,8 @@ export default boot(async ({ app }) => {
   // Media
   app.component("ct-image", mediaImageContainer);
   app.component("ct-thumb", mediaImageThumbnail);
+  app.component("grid-gallery", mediaGridGallery);
+  app.component("media-carousel-dialog", mediaCarouselDialog);
 
   // Blog
   app.component("post-chip", postCategoryChip);
@@ -97,4 +113,12 @@ export default boot(async ({ app }) => {
   app.component("post-gallery-carousel", postGalleryCarousel);
   app.component("post-block-video", postVideoBlock);
   app.component("post-block-table", postTableBlock);
+
+  // Business
+  app.component("biz-thumbnail", bizThumbnail);
+  app.component("biz-grid-container", bizGridContainer);
+  app.component("biz-chip", bizCategoryChip);
+  app.component("biz-social-chip", bizSocialChip);
+  app.component("biz-contact", bizContact);
+  app.component("biz-title", bizTitle);
 });
