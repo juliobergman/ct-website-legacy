@@ -16,10 +16,17 @@
   --q-dark-page: #{$dark-page};
   --q-light: #{$light};
   --q-light-page: #{$light-page};
+  // Custom
+  --ui: #{$ui-light};
+  --ui-reverse: #{$ui-dark};
+  --ui-10: #{$ui-light-10};
+  --ui-25: #{$ui-light-25};
+  --ui-50: #{$ui-light-50};
+  --ui-75: #{$ui-light-75};
 }
 .body--dark {
   --background: #{$dark-page};
-  --q-primary: #6c61ff;
+  --q-primary: #6b6dff;
   --q-secondary: #9891a0;
   --q-accent: #00c5bb;
   --q-light: #fff;
@@ -29,6 +36,13 @@
   --q-warning: #f2c037;
   --q-dark: #{$dark};
   --q-dark-page: #{$dark-page};
+  // Custom
+  --ui: #{$ui-dark};
+  --ui-reverse: #{$ui-light};
+  --ui-10: #{$ui-dark-10};
+  --ui-25: #{$ui-dark-25};
+  --ui-50: #{$ui-dark-50};
+  --ui-75: #{$ui-dark-75};
 }
 
 body.body--light {
@@ -43,4 +57,43 @@ body.body--dark {
 .bg-none {
   background: none !important;
   background-color: transparent !important;
+}
+
+// UI
+
+.bg-ui {
+  background-color: var(--ui) !important;
+}
+.text-ui {
+  color: var(--ui) !important;
+}
+.bg-ui-reverse {
+  background-color: var(--ui-reverse) !important;
+}
+.text-ui-reverse {
+  color: var(--ui-reverse) !important;
+}
+.bg-ui-10 {
+  background-color: var(--ui-10) !important;
+}
+.text-ui-10 {
+  color: var(--ui-10) !important;
+}
+.bg-ui-25 {
+  background-color: var(--ui-25) !important;
+}
+.text-ui-25 {
+  color: var(--ui-25) !important;
+}
+.bg-ui-50 {
+  background-color: var(--ui-50) !important;
+}
+.text-ui-50 {
+  color: var(--ui-50) !important;
+}
+.bg-ui-75 {
+  background-color: var(--ui-75) !important;
+}
+.text-ui-75 {
+  color: var(--ui-75) !important;
 }

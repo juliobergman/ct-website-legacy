@@ -1,7 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Yanone+Kaffeesatz:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@400&display=swap");
 
 .gf-01 {
   font-family: "Great Vibes", cursive;
+}
+
+.gf-02 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.gf-03 {
+  font-family: "Satisfy", cursive;
+  font-style: normal;
+}
+
+.gf-04 {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .text-pre {

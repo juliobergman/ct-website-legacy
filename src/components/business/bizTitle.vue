@@ -1,5 +1,19 @@
 <template>
-  <div class="full-width q-gutter-none q-px-md">
+  <div v-if="minimal" class="full-width q-gutter-none q-mb-md">
+    <div class="row">
+      <h1 class="text-shadow-1 text-h5 text-weight-medium q-pa-none q-ma-none">
+        {{ business.name }}
+      </h1>
+    </div>
+    <div class="row" style="opacity: 0.8">
+      <h2
+        class="text-shadow-1 text-subtitle1 text-weight-light q-pa-none q-ma-none"
+      >
+        {{ business.info }}
+      </h2>
+    </div>
+  </div>
+  <div v-else class="full-width q-gutter-none q-px-md">
     <div class="row q-my-sm">
       <biz-chip
         title
@@ -33,7 +47,12 @@ const $mobile = computed(() => ($q.platform.is.mobile ? true : false));
 
 const props = defineProps({
   bizData: {},
+  minimal: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const business = computed(() => props.bizData);
+const minimal = computed(() => props.minimal);
 </script>

@@ -1,7 +1,15 @@
 <template>
   <q-btn unelevated :color="color" no-caps>
     <div class="flex items-center">
-      {{ label }}
+      <q-icon
+        v-if="iconLeft ? true : false"
+        class="q-mr-sm"
+        size="18px"
+        :name="iconLeft"
+      />
+      <span>
+        {{ label }}
+      </span>
       <q-icon
         v-if="icon ? true : false"
         class="q-ml-sm"
@@ -27,6 +35,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  iconLeft: {
+    type: String,
+    default: "",
+  },
   active: {
     type: Boolean,
     default: false,
@@ -43,6 +55,7 @@ const props = defineProps({
 
 const label = computed(() => props.label);
 const icon = computed(() => props.icon);
+const iconLeft = computed(() => props.iconLeft);
 const active = computed(() => props.active);
 const tooltip = computed(() => props.tooltip);
 

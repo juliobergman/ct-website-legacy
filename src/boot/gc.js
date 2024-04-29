@@ -26,6 +26,7 @@ import HomeMainCard from "../components/home/mainCard.vue";
 import HomePostSection from "../components/home/postSection.vue";
 import HomePostSectionLatest from "../components/home/section/postLatest.vue";
 import HomePostCard from "../components/home/postCard.vue";
+import HomeBizSectionLatest from "../components/home/section/businessLatest.vue";
 
 // Media
 import mediaImageContainer from "../components/media/imageContainer.vue";
@@ -35,6 +36,7 @@ import mediaCarouselDialog from "../components/media/dialog/carouselDialog.vue";
 
 // Blog
 import blogFeaturedPost from "../components/blog/home/featuredPost.vue";
+import blogFeaturedPostTitle from "../components/blog/home/featuredPostTitle.vue";
 import postGridContainer from "../components/blog/postGridContainer.vue";
 import postColumnContainer from "../components/blog/postColumnContainer.vue";
 import blogPostThumbnail from "../components/blog/postThumbnail.vue";
@@ -60,6 +62,14 @@ import bizCategoryChip from "../components/business/bizChip.vue";
 import bizSocialChip from "../components/business/bizSocialChip.vue";
 import bizContact from "../components/business/bizContact.vue";
 import bizTitle from "../components/business/bizTitle.vue";
+import bizCategoryHeader from "../components/business/bizCategoryHeader.vue";
+import bizCategorySelector from "../components/business/categorySelector.vue";
+
+// Full Page Messages
+import fpmErrorNotFound from "../components/fpm/errorNotFound.vue";
+import fpmErrorExpired from "../components/fpm/errorExpired.vue";
+import fpmErrorNotAvailable from "../components/fpm/errorNotAvailable.vue";
+import fpmFreeBusinessPage from "../components/fpm/freeBusinessPage.vue";
 
 export default boot(async ({ app }) => {
   // Logo
@@ -88,6 +98,7 @@ export default boot(async ({ app }) => {
   app.component("home-post-section", HomePostSection);
   app.component("home-latest-posts", HomePostSectionLatest);
   app.component("home-post-card", HomePostCard);
+  app.component("home-latest-biz", HomeBizSectionLatest);
 
   // Media
   app.component("ct-image", mediaImageContainer);
@@ -100,6 +111,7 @@ export default boot(async ({ app }) => {
   app.component("blog-post-title", postTitle);
 
   app.component("blog-featured-post", blogFeaturedPost);
+  app.component("blog-featured-post-title", blogFeaturedPostTitle);
   app.component("post-grid", postGridContainer);
   app.component("post-column", postColumnContainer);
 
@@ -121,4 +133,12 @@ export default boot(async ({ app }) => {
   app.component("biz-social-chip", bizSocialChip);
   app.component("biz-contact", bizContact);
   app.component("biz-title", bizTitle);
+  app.component("biz-category-header", bizCategoryHeader);
+  app.component("biz-category-selector", bizCategorySelector);
+
+  // Full Page Messages
+  app.component("fpm-error-not-found", fpmErrorNotFound);
+  app.component("fpm-error-expired", fpmErrorExpired);
+  app.component("fpm-error-not-available", fpmErrorNotAvailable);
+  app.component("fpm-free-business-page", fpmFreeBusinessPage);
 });

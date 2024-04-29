@@ -12,15 +12,15 @@
     <q-item class="q-py-none q-px-xs text-left">
       <q-item-section class="q-py-none q-px-sm" side>
         <q-icon size="16px" color="primary">
-          <social-icon :icon="media.icon" />
+          <social-icon :icon="media.media.icon" />
         </q-icon>
       </q-item-section>
       <q-item-section class="q-py-none q-px-sm">
         <q-item-label caption>
-          {{ media.name }}
+          {{ media.media.name }}
         </q-item-label>
         <q-item-label>
-          {{ label }}
+          {{ media.username_at }}
         </q-item-label>
       </q-item-section>
     </q-item>

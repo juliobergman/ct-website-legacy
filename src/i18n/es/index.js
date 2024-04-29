@@ -98,4 +98,13 @@ export default {
     label: {},
     tooltip: {},
   },
+  error: {
+    404: {
+      t1: "Coño!",
+      t2: "404 - Page Not Found",
+      t3: "The Page you are looking for might have been removed, had its name changed or is temporarily unavailible.",
+      btn1: "Go Back",
+      btn2: "Go Home",
+    },
+  },
 };

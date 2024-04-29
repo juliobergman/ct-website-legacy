@@ -1,5 +1,13 @@
 <template>
-  <span :style="'opacity: ' + opacity" :class="cssClass">{{ content }} </span>
+  <component
+    :is="tag"
+    v-for="(c, idx) in label"
+    :key="idx"
+    :style="'opacity: ' + opacity"
+    :class="cssClass"
+  >
+    {{ c }}
+  </component>
 </template>
 
 <script setup>
@@ -38,9 +46,23 @@ const props = defineProps({
     type: Number,
     default: null,
   },
+  spacer: {
+    type: Boolean,
+    default: false,
+  },
+  tag: {
+    type: String,
+    default: "span",
+  },
 });
 
-const content = computed(() => props.content);
+const tag = computed(() => props.tag);
+const content = computed(() =>
+  props.spacer ? props.content + " " : props.content
+);
+
+const label = computed(() => props.content.toString().split("\n"));
+
 const opacity = computed(() => props.opacity);
 
 const cssClass = computed(() => {

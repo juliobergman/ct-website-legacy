@@ -1,5 +1,8 @@
 <template>
-  <q-page v-if="loaded" class="business-page-container flex justify-center">
+  <q-page
+    v-if="displayPage.business"
+    class="business-page-container flex justify-center"
+  >
     <q-img
       v-if="!$mobile"
       :ratio="16 / 3"
@@ -8,21 +11,36 @@
     >
       <div class="biz-image-overlay full-width absolute-bottom">
         <div class="contain">
-          <biz-title :biz-data="business" />
+          <!-- <biz-title :biz-data="business" /> -->
         </div>
       </div>
     </q-img>
     <q-card flat :class="bodyClass">
-      <split-frame reverse gutter padding>
-        <template #right>
-          <ct-image :image="business.avatar" />
-        </template>
-        <template #left>
+      <!-- <d-btn @click="retrieve" /> -->
+      <q-card-section class="q-pa-none">
+        <split-frame gutter padding>
+          <template #right>
+            <!-- <q-img
+              :ratio="1 / 1"
+              :src="business.avatar.src"
+              :srcset="business.avatar.srcset"
+              img-class="rounded-borders"
+            /> -->
+            <ct-image :src="business.avatar" :ratio="1 / 1" fit="cover" />
+            UBICACION AQUI
+          </template>
+          <template #left>
+            <!-- <div class="q-pa-md"> -->
+            <biz-title minimal :biz-data="business" />
+            <div v-html="business.body"></div>
+            <!-- </div> -->
+          </template>
+        </split-frame>
+      </q-card-section>
+      <q-card-section>
+        <div>
           <div>
-            <biz-contact :contact="business.default_contact" />
-          </div>
-          <div class="q-mt-sm" v-if="false">
-            <biz-contact :contact="business.default_contact" />
+            <biz-contact :contact="business.contact" />
           </div>
           <div class="q-mt-sm q-px-xs">
             <div>
@@ -35,13 +53,6 @@
             </div>
           </div>
           <div class="q-mt-sm q-px-xs">
-            <!-- <div>
-              <d-text
-                text="caption"
-                :opacity="0.8"
-                :content="$t('common.label.social_networks')"
-              />
-            </div> -->
             <div>
               <div :class="$mobile ? 'column items-start' : 'row'">
                 <biz-social-chip
@@ -53,20 +64,24 @@
               </div>
             </div>
           </div>
-        </template>
-      </split-frame>
-      <div class="q-pa-md">
-        <d-text text="caption" :opacity="0.8" :content="'Bio'" />
-        <div v-html="business.body" />
-      </div>
-      <div class="q-pa-md">
-        <div class="q-mb-md">
-          <d-text text="subtitle2" content="Photos" />
         </div>
-        <grid-gallery :media="business.media" />
-      </div>
+      </q-card-section>
+      <q-card-section class="q-pa-none">
+        <div class="q-pa-md">
+          <div class="q-mb-md">
+            <d-text text="subtitle2" content="Photos" />
+          </div>
+          <grid-gallery :media="business.media" />
+        </div>
+      </q-card-section>
     </q-card>
   </q-page>
+  <q-page v-else-if="displayPage.stop"> Page not Running </q-page>
+  <fpm-free-business-page
+    v-else-if="displayPage.expired"
+    :business="business"
+  />
+  <fpm-error-not-found v-else-if="displayPage.notfound" />
 </template>
 
 <script setup>
@@ -92,6 +107,27 @@ let loaded = ref(false);
 let category = ref({});
 let business = ref({});
 
+const displayPage = computed(() => {
+  if (!loaded.value)
+    return { business: false, stop: false, expired: false, notfound: false };
+  // Not Found
+  if (_.isEmpty(business.value))
+    return { business: false, stop: false, expired: false, notfound: true };
+  // Not Running
+  if (!business.value.run)
+    return { business: false, stop: false, expired: false, notfound: true };
+  // Free
+  if (business.value.run && business.value.subscription_status == "free")
+    return { business: false, stop: false, expired: true, notfound: false };
+  // Expired
+  if (business.value.run && business.value.subscription_status == "expired")
+    return { business: false, stop: false, expired: true, notfound: false };
+  // Running
+  if (business.value.run && business.value.subscription_status == "active")
+    return { business: true, stop: false, expired: false, notfound: false };
+  return { business: false, stop: false, expired: false, notfound: false };
+});
+
 const username = computed(() => $route.params.username);
 
 function retrieve() {
@@ -116,6 +152,9 @@ function retrieve() {
     })
     .catch((error) => {
       console.error(error);
+      console.error(error.response);
+      loaded.value = true;
+      business.value = null;
       $q.loading.hide();
     });
 }

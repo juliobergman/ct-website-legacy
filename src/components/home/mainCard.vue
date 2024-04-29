@@ -1,7 +1,7 @@
 <template>
-  <div class="col-12 col-sm-4">
+  <div class="col-12 col-sm-4 q-pa-lg">
     <q-card>
-      <q-img :ratio="4 / 3" :src="card.image" />
+      <q-img :ratio="3 / 2" :src="card.image" />
       <q-card-section>
         <div class="text-h6">
           {{ $t("home.cards." + card.card + ".title") }}
@@ -14,7 +14,7 @@
         </div>
       </q-card-section>
       <q-card-actions class="justify-end">
-        <q-btn flat class="full-width" padding="0">
+        <q-btn flat class="full-width" padding="0" :to="data.route">
           <q-space />
           <q-icon name="chevron_right" />
         </q-btn>

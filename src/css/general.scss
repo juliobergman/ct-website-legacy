@@ -17,3 +17,40 @@ $max-width: 1200px;
 .d-none {
   display: none;
 }
+.index-card-container {
+  max-width: $max-width * 1.4;
+  margin: auto;
+}
+.bg-bottom-overlay {
+  background: rgb(0, 0, 0, 0) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+.gradient-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.menu-container {
+  width: auto;
+  min-width: 250px;
+}
+.dialog-card {
+  width: 100%;
+  max-width: 450px !important;
+}
+.q-dialog__inner--maximized {
+  .dialog-card {
+    min-height: 100vh;
+  }
+}
+.dialog-card-lg {
+  width: 100%;
+  max-width: 550px !important;
+}

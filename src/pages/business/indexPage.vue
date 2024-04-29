@@ -1,29 +1,18 @@
 <template>
   <q-page v-if="loaded" padding>
-    <!-- <q-img
-      :ratio="16 / 6"
-      :src="category.image.src"
-      class="post-featured-image"
-    >
-      <div class="bg-transparent full-width absolute-bottom">
-        <div class="contain">
-          <d-text text="h3" shadowed :content="category.name" />
-        </div>
-      </div>
-    </q-img> -->
-
     <div class="contain">
-      <!-- <div class="q-mb-md">
-        <q-img :ratio="$mobile ? 16 / 6 : 16 / 3" :src="category.image.src" />
-      </div> -->
-      <div class="q-mb-sm">
-        <d-text text="h6" :content="category.name" />
-      </div>
-      <div class="">
-        <d-text text="body1" :content="category.body_content" />
-      </div>
-      <q-separator class="q-my-lg" />
-      <biz-grid-container :business="business" />
+      <q-infinite-scroll
+        ref="iscroll"
+        :initial-index="1"
+        @load="onLoad"
+        :offset="200"
+      >
+        <biz-category-header />
+        <!-- <div class="text-pre">
+          {{ business }}
+        </div> -->
+        <biz-grid-container :business="business" />
+      </q-infinite-scroll>
     </div>
   </q-page>
 </template>
@@ -42,21 +31,23 @@ const $store = useAppStore();
 const $mobile = computed(() => ($q.platform.is.mobile ? true : false));
 
 let loaded = ref(false);
-let category = ref({});
+let scrollActive = ref(true);
+let category = ref("all");
 let business = ref({});
+let iscroll = ref(null);
 
-const username = computed(() => $route.params.username);
-
-function retrieve() {
-  if (!$route.params.category) return;
+function retrieve(lang, offset = 1) {
+  if (!$store.getLocale) return;
   $q.loading.show();
 
   api
     .get(
       "/api/" +
         $store.getLocale +
-        "/business/list/category/" +
-        $route.params.category,
+        "/business/list/fcategory/" +
+        category.value +
+        "?scroll=" +
+        offset,
       {
         // headers: {
         //   Authorization: "Bearer " + token,
@@ -65,8 +56,14 @@ function retrieve() {
     )
     .then((response) => {
       if (response.status === 200) {
-        category.value = response.data.category;
-        business.value = response.data.business;
+        if (offset == 1) {
+          business.value = response.data;
+        }
+        if (offset > 1) {
+          business.value = [...business.value, ...response.data];
+        }
+
+        if (response.data.length < 12) scrollActive.value = false;
         loaded.value = true;
       }
       $q.loading.hide();
@@ -76,7 +73,23 @@ function retrieve() {
       $q.loading.hide();
     });
 }
-watchEffect(() => retrieve($route.params.category));
+watchEffect(() => retrieve($store.getLocale));
+
+function onLoad(payload, done) {
+  if (scrollActive.value) {
+    retrieve($store.getLocale, payload);
+    done();
+  }
+}
+
+function resetScroll() {
+  console.log("resetScroll()");
+  if (iscroll.value) {
+    iscroll.value.reset();
+    scrollActive.value = true;
+  }
+}
+// watchEffect(() => resetScroll(category.value));
 </script>
 <style lang="scss">
 .author-container {

@@ -4,6 +4,7 @@
 export default {
   common: {
     label: {
+      all: "All",
       abort: "Abort",
       add: "Add",
       apply_changes: "Apply Changes",
@@ -61,6 +62,16 @@ export default {
       fullscreen_exit: "Exit Fullscreen",
     },
   },
+  app: {
+    header: {
+      blog: "Blog",
+      places: "Places",
+      photos: "Photos",
+      media: "Photos",
+    },
+    label: {},
+    tooltip: {},
+  },
   language: {
     label: "Language",
     en: "English",
@@ -80,7 +91,7 @@ export default {
       card2: {
         title: "Places to Eat",
         subtitle: "Places to Eat",
-        body: "Exciting world cuisine or satisfying comfort food. We've got it all.",
+        body: "Exciting world cuisine or satisfying comfort food.",
       },
       card3: {
         title: "Where to Stay",
@@ -96,11 +107,29 @@ export default {
       keep_reading: "Keep Reading",
       published_by: "Published by",
       latest: "Latest Posts",
+      featured: "Featured",
+    },
+    tooltip: {},
+  },
+  biz: {
+    titles: {},
+    label: {
+      latest: "Latest Places",
     },
     tooltip: {},
   },
   template: {
     label: {},
     tooltip: {},
+  },
+  message: {},
+  error: {
+    404: {
+      t1: "Oops!",
+      t2: "404 - Page Not Found",
+      t3: "The Page you are looking for might have been removed, \n had its name changed or is temporarily unavailable.",
+      btn1: "Go Back",
+      btn2: "Go Home",
+    },
   },
 };

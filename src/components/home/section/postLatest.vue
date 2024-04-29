@@ -1,6 +1,6 @@
 <template>
   <div class="section flex justify-center">
-    <div class="content q-gutter-y-lg">
+    <div class="content q-gutter-y-lg q-pa-md">
       <d-text text="h6" weight="medium" :content="$t('blog.label.latest')" />
       <post-grid :posts="posts" />
     </div>
@@ -18,6 +18,7 @@ const $q = useQuasar();
 const $store = useAppStore();
 const $router = useRouter();
 const $route = useRoute();
+const $mobile = computed(() => ($q.platform.is.mobile ? true : false));
 
 let posts = ref([]);
 

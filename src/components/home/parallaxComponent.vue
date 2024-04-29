@@ -26,11 +26,15 @@
     </div>
     <div class="body-container">
       <div class="body-content">
-        <div style="background-color: #003321; padding-bottom: 60px">
+        <!-- <div style="background-color: #141414; padding-bottom: 60px"> -->
+        <div style="padding-bottom: 60px">
           <slot name="sl01" />
         </div>
         <div>
           <slot name="sl02" />
+        </div>
+        <div>
+          <slot name="sl03" />
         </div>
         <div>
           <footer-component />
@@ -112,7 +116,7 @@
 }
 
 .parallax__layer__1 {
-  // display: none;
+  display: none;
   -webkit-transform: translateZ(-300px) scale(4);
   transform: translateZ(-300px) scale(4);
   // -webkit-transform: translateZ(-250px) scale(3.5);
@@ -143,13 +147,13 @@
 }
 
 .parallax__layer__5 {
-  display: none;
+  // display: none;
   -webkit-transform: translateZ(-50px) scale(1.5);
   transform: translateZ(-50px) scale(1.5);
 }
 
 .parallax__layer__6 {
-  // display: none;
+  display: none;
   -webkit-transform: translateZ(0px) scale(1);
   transform: translateZ(0px) scale(1);
 }

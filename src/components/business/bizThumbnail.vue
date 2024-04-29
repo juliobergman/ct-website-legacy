@@ -1,15 +1,7 @@
 <template>
   <div class="col-6 col-sm-3 cursor-pointer" @click="handleClick">
     <q-card flat square style="background-color: transparent">
-      <q-img
-        :ratio="1 / 1"
-        :src="
-          business.avatar.src !=
-          'http://127.0.0.1:8000/storage/factory/avatar/misc/avatar-company.jpg'
-            ? business.avatar.src
-            : 'https://source.unsplash.com/random/640x480/?landscape=' + rand
-        "
-      >
+      <q-img :ratio="1 / 1" :src="business.avatar.src">
         <div class="fit flex bg-none content-end"></div>
       </q-img>
 

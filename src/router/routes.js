@@ -41,14 +41,6 @@ const routes = [
         },
       },
       {
-        path: "author/:username",
-        name: "post-author",
-        component: () => import("pages/blog/authorPage.vue"),
-        meta: {
-          // middlewares: [guest],
-        },
-      },
-      {
         path: "category/:category",
         name: "blog-category",
         component: () => import("pages/blog/categoryPage.vue"),
@@ -58,15 +50,38 @@ const routes = [
       },
     ],
   },
-  // Business
+  // author
   {
-    path: "/business",
+    path: "/author",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
+        path: ":username",
+        name: "post-author",
+        component: () => import("pages/blog/authorPage.vue"),
+        meta: {
+          // middlewares: [guest],
+        },
+      },
+    ],
+  },
+  // Business
+  {
+    path: "/places",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      {
+        path: ":category?",
+        name: "business-index",
+        component: () => import("pages/business/indexPage.vue"),
+        meta: {
+          // middlewares: [guest],
+        },
+      },
+      {
         path: "section/:category",
         name: "business-category",
-        component: () => import("pages/business/indexPage.vue"),
+        component: () => import("pages/business/categoryPage.vue"),
         meta: {
           // middlewares: [guest],
         },

@@ -1,10 +1,6 @@
 <template>
   <div class="row q-col-gutter-x-md q-col-gutter-y-md">
-    <biz-thumbnail
-      v-for="business in business"
-      :key="business.id"
-      :business="business"
-    />
+    <biz-thumbnail v-for="biz in business" :key="biz.id" :business="biz" />
   </div>
 </template>
 

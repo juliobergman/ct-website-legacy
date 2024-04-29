@@ -1,22 +1,19 @@
 <template>
-  <q-page padding>
-    <div class="row">
-      <blog-featured-post />
-    </div>
-    <div class="row">
+  <q-page v-if="loaded">
+    <blog-featured-post class="q-mb-xl" :post="blog.featured_post" />
+    <div :class="$mobile ? 'contain q-px-md' : 'contain'">
       <div>
-        <d-text content="Top Posts" />
+        <div class="q-mb-md">
+          <d-text text="h6" content="Top Posts" />
+        </div>
+        <post-column :posts="blog.top_posts" />
       </div>
-      <post-column />
-    </div>
-    <div class="row">
       <div>
-        <d-text content="Latest Posts" />
+        <div class="q-mb-md">
+          <d-text text="h6" content="Latest Posts" />
+        </div>
+        <post-grid :posts="blog.latest_post" />
       </div>
-      <!-- <post-grid :posts="blog.latest_post" /> -->
-    </div>
-    <div class="text-pre">
-      {{ blog }}
     </div>
   </q-page>
 </template>
