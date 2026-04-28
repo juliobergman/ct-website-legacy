@@ -76,14 +76,14 @@ function handleClick() {
 
 // Container Resize
 function setupImage() {
-  imageStyle.value = "height: " + image.value.$el.clientHeight + "px";
+  imageStyle.value = "height: " + imageRef.value.$el.clientHeight + "px";
 }
 onMounted(() => {
   window.addEventListener(
     "resize",
     () => {
       if (image.value) {
-        imageStyle.value = "height: " + image.value.$el.clientHeight + "px";
+        imageStyle.value = "height: " + imageRef.value.$el.clientHeight + "px";
       }
       return;
     },

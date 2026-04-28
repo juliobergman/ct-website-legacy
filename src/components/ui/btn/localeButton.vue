@@ -1,5 +1,5 @@
 <template>
-  <q-btn flat round v-if="showBtn">
+  <q-btn flat round v-if="!hidden">
     <q-avatar size="22px">
       <img :src="flag" />
     </q-avatar>
@@ -25,30 +25,6 @@
       </q-list>
     </q-menu>
   </q-btn>
-  <!-- <q-item clickable v-if="showItem" @click.stop="toggleDarkMode"> </q-item> -->
-  <q-expansion-item
-    v-if="showItem"
-    expand-separator
-    :label="$t('language.label')"
-  >
-    <q-item
-      v-for="(lang, idx) in localeOptions"
-      :key="idx"
-      clickable
-      v-close-popup
-      tabindex="0"
-      @click="onItemClick(lang)"
-    >
-      <q-item-section>
-        <q-item-label>{{ lang.label }}</q-item-label>
-      </q-item-section>
-      <q-item-section avatar>
-        <q-avatar size="sm">
-          <q-img :src="lang.flag" />
-        </q-avatar>
-      </q-item-section>
-    </q-item>
-  </q-expansion-item>
 </template>
 
 <script setup>
@@ -61,10 +37,6 @@ const $q = useQuasar();
 const $store = useAppStore();
 
 const props = defineProps({
-  listItem: {
-    type: Boolean,
-    default: false,
-  },
   hidden: {
     type: Boolean,
     default: false,
@@ -77,30 +49,26 @@ const flag = computed(
   () => _.find(localeOptions.value, (e) => e.value == locale.value)["flag"]
 );
 
-const showBtn = computed(() => {
-  if (props.hidden) return false;
-  if (props.listItem) return false;
-  return true;
-});
-const showItem = computed(() => {
-  if (props.hidden) return false;
-  if (!props.listItem) return false;
-  return true;
-});
-
 function onItemClick(lang) {
   setLanguage(lang.value);
 }
 
 if ($q.cookies.has("language")) {
   setLanguage($q.cookies.get("language"));
+} else {
+  let langs = ["es", "en", "de"];
+  let navlang = navigator.language.split("-")[0];
+  let check = _.find(langs, (e) => e == navlang);
+  if (check) {
+    setLanguage(navlang);
+  }
 }
 
 function setLanguage(payload) {
-  locale.value = payload;
   $q.cookies.set("language", payload, { path: "/" });
-  $store.setLocale(payload);
   $emit("update:lang", payload);
+  locale.value = payload;
+  $store.setLocale(payload);
 }
 
 const localeOptions = computed(() => $store.getLocaleOptions);

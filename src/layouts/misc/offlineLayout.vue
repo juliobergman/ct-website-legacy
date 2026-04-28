@@ -7,21 +7,17 @@
   </q-layout>
 </template>
 
-<script>
-import { ref } from "vue";
+<script setup>
+import { ref, onMounted } from "vue";
+import { useAppStore } from "src/stores/app";
 
-export default {
-  // name: 'LayoutName',
+$store = useAppStore();
 
-  setup() {
-    const leftDrawerOpen = ref(false);
-
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-};
+onMounted(() => {
+  if ($q.cookies.has("dark_mode")) {
+    $store.setDarkMode($q.cookies.get("dark_mode"));
+  } else {
+    $store.setDarkMode("auto");
+  }
+});
 </script>

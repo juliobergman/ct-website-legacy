@@ -132,4 +132,8 @@ export default {
       btn2: "Go Home",
     },
   },
+  offline: {
+    text1: "Our Website is Under Construction",
+    text2: "Check Back Soon...",
+  },
 };

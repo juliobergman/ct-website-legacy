@@ -1,5 +1,5 @@
 <template>
-  <div class="section flex justify-center">
+  <div>
     <div class="content q-gutter-y-lg q-pa-md">
       <d-text text="h6" weight="medium" :content="$t('blog.label.latest')" />
       <post-grid :posts="posts" />

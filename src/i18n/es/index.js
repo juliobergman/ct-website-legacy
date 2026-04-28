@@ -107,4 +107,8 @@ export default {
       btn2: "Go Home",
     },
   },
+  offline: {
+    text1: "Sitio en Construcción...",
+    text2: "Vuelva Pronto...",
+  },
 };

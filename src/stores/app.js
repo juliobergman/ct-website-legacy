@@ -1,4 +1,12 @@
 import { defineStore } from "pinia";
+import {
+  Cookies,
+  Loading,
+  Dialog,
+  Dark,
+  SessionStorage,
+  LocalStorage,
+} from "quasar";
 
 export const useAppStore = defineStore("app", {
   state: () => ({
@@ -41,6 +49,20 @@ export const useAppStore = defineStore("app", {
   actions: {
     setLocale(payload) {
       this.locale = payload;
+    },
+    setDarkMode(payload = null) {
+      let dm = "auto";
+      if (typeof payload == "boolean") {
+        dm = payload;
+      } else if (typeof payload == "number") {
+        if (payload > 0) dm = true;
+        else if (payload < 1) dm = false;
+      } else if (typeof payload == "string") {
+        if (payload == "1" || payload == "true") dm = true;
+        else if (payload == "0" || payload == "false") dm = false;
+      }
+      Cookies.set("dark_mode", dm, { path: "/" });
+      Dark.set(dm);
     },
   },
 });

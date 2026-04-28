@@ -98,4 +98,8 @@ export default {
     label: {},
     tooltip: {},
   },
+  offline: {
+    text1: "Our Website is Under Construction",
+    text2: "Check Back Soon...",
+  },
 };

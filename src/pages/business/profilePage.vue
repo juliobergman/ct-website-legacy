@@ -15,7 +15,7 @@
         </div>
       </div>
     </q-img>
-    <q-card flat :class="bodyClass">
+    <q-card flat :class="bodyClass" v-if="false">
       <!-- <d-btn @click="retrieve" /> -->
       <q-card-section class="q-pa-none">
         <split-frame gutter padding>

@@ -45,10 +45,10 @@ import blogUserInsert from "../components/blog/userInsert.vue";
 
 import postCategoryChip from "../components/blog/post/categoryChip.vue";
 import postTitle from "../components/blog/post/postTitle.vue";
+
 import postBlockSelector from "../components/blog/post/blockSelector.vue";
 import postTextBlock from "../components/blog/post/content/textBlock.vue";
 import postImageBlock from "../components/blog/post/content/imageBlock.vue";
-
 import postGalleryBlock from "../components/blog/post/content/galleryBlock.vue";
 import postGalleryGrid from "../components/blog/post/content/gallery/typeGrid.vue";
 import postGalleryCarousel from "../components/blog/post/content/gallery/typeCarousel.vue";

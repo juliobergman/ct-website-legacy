@@ -10,14 +10,22 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useRouter } from "vue-router";
-import { api } from "boot/axios";
-import { Platform, useQuasar } from "quasar";
+import { computed, onMounted } from "vue";
+import { useAppStore } from "stores/app";
+import { useQuasar, useMeta } from "quasar";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 const $q = useQuasar();
-const $router = useRouter();
-const darkmode = computed(() => $q.dark.isActive);
-const device =
-  Platform.is.name + "-" + Platform.is.platform + "-" + Platform.is.version;
+const $store = useAppStore();
+const $route = useRoute();
+
+onMounted(() => {
+  if ($q.cookies.has("dark_mode")) {
+    $store.setDarkMode($q.cookies.get("dark_mode"));
+  } else {
+    $store.setDarkMode();
+  }
+});
 </script>

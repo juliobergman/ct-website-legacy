@@ -7,12 +7,8 @@
         </q-icon>
         <!-- <logo-text :dark="dark" /> -->
       </div>
-      <d-text
-        text="subtitle2"
-        tag="div"
-        content="Our Website is Under Construction"
-      />
-      <d-text text="subtitle2" tag="div" content="Check Back Soon..." />
+      <d-text text="subtitle2" tag="div" :content="$t('offline.text1')" />
+      <d-text text="subtitle2" tag="div" :content="$t('offline.text2')" />
     </div>
   </div>
 </template>
@@ -20,8 +16,16 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useQuasar } from "quasar";
+import { useAppStore } from "stores/app";
 const $q = useQuasar();
+const $store = useAppStore();
 
-$q.dark.set(false);
+onMounted(() => {
+  if ($q.cookies.has("dark_mode")) {
+    $store.setDarkMode($q.cookies.get("dark_mode"));
+  } else {
+    $store.setDarkMode();
+  }
+});
 const dark = computed(() => $q.dark.isActive);
 </script>
